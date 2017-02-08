@@ -1,0 +1,19 @@
+{
+  "name": "epub-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nalinchhibber/epub-test.git"
+  },
+  "author": "nalinc <nalin.chhibber@gmail.com> (http://nalinc.github.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nalinchhibber/epub-test/issues"
+  },
+  "homepage": "https://github.com/nalinchhibber/epub-test#readme"
+}
