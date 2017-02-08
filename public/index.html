@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>iframe test</title>
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script  src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h3>iframe access test</h3>
+		<div class="directions">
+			<ul>
+				<li>copy-paste url of a site to load it in iframe </li>
+				<li>click "read" to access title of the embedded page</li>
+				<li>click "write" to change title of the embedded page</li>
+			</ul>
+		</div>
+		<dir class="control">
+			<dir class="row">
+				<div class="col-xs-12">
+					<input type="text" id="url">
+				</div>
+				<dir  class="col-xs-6">
+					<div class="btn btn-load btn-primary" onclick="loadFrame()">Load Frame</div>
+					<div class="btn btn-read btn-warning" onclick="readTitle()">Read</div>
+					<div class="btn btn-read btn-danger" onclick="writeTitle()">Write</div>
+				</dir>
+				<dir  class="col-xs-6">
+					<div class="output">
+						<textarea></textarea>
+					</div>
+				</dir>				
+			</dir>
+		</dir>
+		<div id="area">
+			<iframe id="myframe" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" ></iframe>	
+		</div>		
+	</div>
+	<script type="text/javascript">
+		function loadFrame(){
+			var url = $("#url").val();
+			$(".output textarea").val("")
+			if(url==""){
+				alert("No URL specified")
+				return;
+			}
+			$("#area iframe").attr("src",url)
+			$(".output textarea").val("")
+		}
+		function readTitle(){
+			var newDocument =  document.getElementById('myframe').contentWindow.document;
+			var newBody = newDocument.body.textContent;
+			$(".output textarea").val(newBody);
+		}
+		function writeTitle(){
+			var newBody = $(".output textarea").val();
+			var newDocument =  document.getElementById('myframe').contentWindow.document;
+			newDocument.body.textContent = newBody;
+		}
+	</script>
+</body>
+</html>
